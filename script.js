@@ -3,7 +3,7 @@ function createInteractiveDivs() {
     const data = [1, 2, 3, 4, 5];
     const container = d3.select('body').append('div').attr('class', 'container');
 
-    container.selectAll(.data-point)
+    container.selectAll('.data-point')
     .data(data)
     .enter()
     .append('div');
@@ -15,4 +15,14 @@ function createInteractiveDivs() {
     .style('display', 'inline-block')
     .on('mouseover', handleMouseOver)
     .on('mouseout', handleMouseOut);
-}
+    }
+
+function handleMouseover(event, d) {
+    d3.select(this).style('background-color', 'firebrick');
+    }
+
+function handleMouseOut(event, d) {
+    d3.select(this).style('background-color', 'greenyellow');
+    }
+
+document.addEventListener('DOMContentLoaded', createInteractiveDivs);
